@@ -99,9 +99,10 @@
         </div>
     </section>
     <!-- Pied de page -->
-    <footer class="bg-blue-600 text-white py-6 text-center"> © 2025 Dr. - Tous droits réservés </footer>
+    <footer class="bg-blue-600 text-white py-6 text-center"> © 2026 Dr. - Tous droits réservés </footer>
 
     <script src="script.js"></script>
 </body>
+
 
 </html> ```
