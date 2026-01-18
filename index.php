@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <header class="fixed w-full bg-white shadow z-50">
         <nav class="container mx-auto flex justify-between items-center py-4 px-6">
-            <h1 class="text-xl font-bold text-blue-600">Dr.</h1>
+            <h1 class="text-xl font-bold text-blue-600">Sami Smile</h1>
             <ul class="flex space-x-6">
                 <li><a href="#accueil" class="hover:text-blue-600">Accueil</a></li>
                 <li><a href="#apropos" class="hover:text-blue-600">À propos</a></li>
@@ -99,10 +99,11 @@
         </div>
     </section>
     <!-- Pied de page -->
-    <footer class="bg-blue-600 text-white py-6 text-center"> © 2026 Dr. - Tous droits réservés </footer>
+    <footer class="bg-blue-600 text-white py-6 text-center"> © 2026 Sami Smile - Tous droits réservés </footer>
 
     <script src="script.js"></script>
 </body>
 
 
 </html> ```
+
