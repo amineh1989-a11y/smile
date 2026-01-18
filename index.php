@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Cabinet dentaire</title>
+    <link rel=" stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css"
+        integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossorigin="anonymous">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="newP.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Navbar -->
+    <header class="fixed w-full bg-white shadow z-50">
+        <nav class="container mx-auto flex justify-between items-center py-4 px-6">
+            <h1 class="text-xl font-bold text-blue-600">Dr.</h1>
+            <ul class="flex space-x-6">
+                <li><a href="#accueil" class="hover:text-blue-600">Accueil</a></li>
+                <li><a href="#apropos" class="hover:text-blue-600">À propos</a></li>
+                <li><a href="#services" class="hover:text-blue-600">Services</a></li>
+                <li><a href="#rdv" class="hover:text-blue-600">Rendez-vous</a></li>
+                <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Accueil -->
+    <section id="accueil"
+        class="h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1588776814546-ec5c9b6c07f0')] bg-cover bg-center relative">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="text-center text-white relative z-10">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">Votre sourire, notre priorité</h2>
+            <p class="text-lg md:text-xl mb-6">Implants, prothèses et soins dentaires de qualité</p> <a href="#rdv"
+                class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">Prendre rendez-vous</a>
+        </div>
+    </section> <!-- À propos -->
+    <section id="apropos" class="py-20 container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-8">À propos</h2>
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <imgsrc="photo" alt="Dentiste" class="rounded-2xl shadow-lg">
+                <p class="text-lg leading-relaxed"> Bienvenue au cabinet dentaire du Dr Dupont. Avec plus de 20 ans
+                    d'expérience,Nous du caractère moderne et personnel. Notre objectif : redonner confiance à votre
+                    sourire
+                    grâce à des traitements de haute qualité. </p>
+        </div>
+    </section>
+    <!-- Services -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Nos services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+                    <img src="photos/p7.jpg" class="phservice">
+                    <h3 class="text-xl font-semibold mb-4">Implants dentaires</h3>
+                    <p>Remplacez vos dents manquantes par des implants durables et esthétiques.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+                    <img src="photos/p5.jpg" class="phservice">
+                    <h3 class="text-xl font-semibold mb-4">Prothèses dentaires</h3>
+                    <p>Améliorez le confort et la fonction des prothèses avec soin.</p>
+                </div>
+                <div class="bg-white p-6 round-2xl shadow hover:shadow-xl transition">
+                    <img src="photos/p6.jpeg" class="phservice">
+                    <h3 class="text-xl font-semibold mb-4">Soins & Hygiène</h3>
+                    <p>Détartrage, blanchiment et suivi régulier pour garder un sourire éclatant.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Rendez-vous -->
+    <section id="rdv" class="py-20 conteneur mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-8">Prendre Rendez-vous</h2>
+
+       <form class="rndv" action="save_booking.php" method="POST">
+    <input type="text" name="fullname" placeholder="Nom complet" required><br><br>
+
+    <input type="email" name="email" placeholder="email" required><br><br>
+
+    <input type="text" name="phone" placeholder="Phone" required><br><br>
+
+    <input type="date" name="date" required><br><br>
+
+    <textarea name="message" placeholder="Votre message"></textarea><br><br>
+
+    <button type="submit">"Envoyer"</button>
+</form>
+        <p id="confirmation" class="text-center text-green-600 mt-4 hidden">✅ Votre demande envoyée avec succès !</p>
+    </section>
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8">Contact</h2>
+            <p class="mb-4">📍 123 Rue de la Santé, Anvers</p>
+            <p class="mb-4">📞 +32 485 63 90 66</p>
+            <p class="mb-4">✉️ contact@dr.fr</p>
+        </div>
+    </section>
+    <!-- Pied de page -->
+    <footer class="bg-blue-600 text-white py-6 text-center"> © 2025 Dr. - Tous droits réservés </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html> ```

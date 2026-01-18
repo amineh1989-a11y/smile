@@ -11,3 +11,12 @@ body {
     width: 100%;
     background-attachment: fixed;
 }
+
+.rndv .content {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
