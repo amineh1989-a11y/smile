@@ -1,38 +1,40 @@
 <?php
-// 1. ربط مع قاعدة البيانات
-$conn = new mysqli("localhost", "root", "", "booking_test");
-
-if ($conn->connect_error) {
-    die("فشل الاتصال بقاعدة البيانات");
+session_start();
+if(empty($_SESSION['token'])){
+    $_SESSION['token'] = bin2hex(random_bytes(32));
 }
 
-// 2. استقبال البيانات من الفورم
+
+
+
+$conn = new mysqli("localhost", "root", "", "booking_db");
+if ($conn->connect_error) {
+    die("Erreur connexion");
+}
+
 $fullname = $_POST['fullname'];
-$email    = $_POST['email'];
-$phone    = $_POST['phone'];
-$date     = $_POST['date'];
-$message  = $_POST['message'];
+$email = $_POST['email'];
+$date = $_POST['appointment_date'];
+$message = $_POST['message'];
 
-// 3. إدخال البيانات لقاعدة البيانات
-$sql = "INSERT INTO bookings
-(fullname, email, phone, appointment_date, message)
-VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO bookings (fullname, email, appointment_date, message)
+        VALUES ('$fullname', '$email', '$date', '$message')";
 
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("sssss",
-    $fullname,
-    $email,
-    $phone,
-    $date,
-    $message
-);
+if ($conn->query($sql) === TRUE) {
 
-$stmt->execute();
+    // ✉️ Email
+    $to = $email;
+    $subject = "Confirmation de votre rendez-vous";
+    $body = "Bonjour $fullname,\n\nVotre rendez-vous est bien enregistré pour le $date.\n\nMerci.";
+    $headers = "From: contact@samismile.com";
 
-// 4. إغلاق الاتصال
-$stmt->close();
+    mail($to, $subject, $body, $headers);
+
+    header("Location: index.php?success=1");
+    exit();
+} else {
+    echo "Erreur";
+}
+
 $conn->close();
-
-// 5. رسالة نجاح
-echo "تم تسجيل الحجز بنجاح";
 ?>
