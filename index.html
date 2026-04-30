@@ -1,0 +1,193 @@
+
+
+<?php
+session_start();
+
+if(empty($_SESSION['token'])){
+    $_SESSION['token'] = bin2hex(random_bytes(32));
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Cabinet dentaire</title>
+    <link rel=" stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css"
+        integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossorigin="anonymous">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="newP.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+
+<body>
+
+    <!-- Navbar   class="service-card fade-up"   -->
+    <header>
+        <div class="parent">
+            <div class="navbar">
+                <div class="logo">
+                    <h1 >FUCHSMILE</h1>
+                </div>
+                <ul class="nav_links">
+                    <li><a href="#sec_acc">Accueil</a></li>
+                    <li><a href="#sec_acc">À propos de nous</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Accueil -->   <!-- a propos -->
+    
+    <section class="sec_acc" id="sec_acc">
+        <div class="Accueil">
+
+            <div class="acc">
+                <h2>Votre sourire, notre priorité</h2>
+
+
+
+                <div id="about" class="about">
+    <div class="about-container">
+        <div class="about-text">
+            <h2>À propos de notre cabinet</h2>
+            <p>
+                Nous sommes un cabinet dentaire moderne, spécialisé dans les soins
+                dentaires, l’esthétique et le suivi personnalisé de chaque patient.
+            </p>
+            <p>
+                Notre objectif est de vous offrir des soins de qualité, dans un
+                environnement confortable et sécurisé.
+            </p>
+        </div>
+    </div>
+</div>
+
+                <a href="#rdv" class="rdv_btn">Prendre rendez-vous</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Services -->
+
+<section id="services" class="services">
+    <h2>Nos Services</h2>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <img src="photos/p8.jpg" alt="">
+            <h3>Soins Dentaires</h3>
+            <p>Consultation, détartrage et traitement des caries.</p>
+        </div>
+
+
+        <div class="service-card">
+            <img src="photos/p6.jpeg" alt="">
+            <h3>Blanchiment</h3>
+            <p>Un sourire plus blanc grâce à des techniques modernes.</p>
+        </div>
+
+
+        <div class="service-card">
+            <img src="photos/p10.jfif" alt="">
+            <h3>Orthodontie</h3>
+            <p>Alignement dentaire pour enfants et adultes.</p>
+        </div>
+
+
+        <div class="service-card">
+            <img src="photos/p1.jpg" alt="">
+            <h3>Implants</h3>
+            <p>Solutions durables pour remplacer les dents manquantes.</p>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- Rendez-vous -->
+    <section id="rdv" class="rdv">
+    <h2>Prendre Rendez-vous</h2>
+
+    <div class="parent_rdv">
+        <div class="child_rdv">
+            <form id="rdvForm" method="POST">
+                <input type="text" name="fullname" placeholder="Votre nom" required>
+                <input type="email" name="email" placeholder="Votre email" required>
+                <input type="date" name="appointment_date" required>
+                <textarea name="message" rows="4" placeholder="Votre message"></textarea>
+                <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <p id="confirmation" class="hide">✅ Votre demande envoyée avec succès !</p>
+</section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="contact1">
+        <div class="parent_contact">
+            <h2>Contact</h2>
+            <p class="mb-4">📍 KAPELSTRAAT 298, Anvers</p>
+            <p class="mb-4">📞 +32 485 63 90 66</p>
+            <p class="mb-4">✉️ contact@smile.fr</p>
+        </div>
+    </section>
+
+
+
+
+    <!-- footer -->
+    <footer> © 2026 FUCHSMILE- Tous droits réservés </footer>
+
+
+
+    <!--<script src="script.js"></script>  -->
+    <script>
+    document.getElementById("rdvForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const msg = document.getElementById("confirmation");
+
+    fetch("save_booking_ajax.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.text())
+    .then(data => {
+        if (data === "success") {
+            msg.style.display = "block";
+
+            setTimeout(() => {
+                msg.style.display = "none";
+            }, 3000);
+
+            this.reset();
+        } else {
+            alert("Erreur");
+        }
+    })
+    .catch(() => {
+        alert(" Probleme de connection");
+    });
+
+}); // ✔️ ضروري
+
+    </script>
+
+</body>
+
+</html>
