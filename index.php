@@ -1,3 +1,14 @@
+
+
+<?php
+session_start();
+
+if(empty($_SESSION['token'])){
+    $_SESSION['token'] = bin2hex(random_bytes(32));
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -10,100 +21,173 @@
         integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossorigin="anonymous">
     <link rel="stylesheet" href="all.min.css">
     <link rel="stylesheet" href="newP.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 
-<body class="font-sans bg-gray-50 text-gray-800">
-    <!-- Navbar -->
-    <header class="fixed w-full bg-white shadow z-50">
-        <nav class="container mx-auto flex justify-between items-center py-4 px-6">
-            <h1 class="text-xl font-bold text-blue-600">Sami Smile</h1>
-            <ul class="flex space-x-6">
-                <li><a href="#accueil" class="hover:text-blue-600">Accueil</a></li>
-                <li><a href="#apropos" class="hover:text-blue-600">À propos</a></li>
-                <li><a href="#services" class="hover:text-blue-600">Services</a></li>
-                <li><a href="#rdv" class="hover:text-blue-600">Rendez-vous</a></li>
-                <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- Accueil -->
-    <section id="accueil"
-        class="h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1588776814546-ec5c9b6c07f0')] bg-cover bg-center relative">
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="text-center text-white relative z-10">
-            <h2 class="text-4xl md:text-6xl font-bold mb-4">Votre sourire, notre priorité</h2>
-            <p class="text-lg md:text-xl mb-6">Implants, prothèses et soins dentaires de qualité</p> <a href="#rdv"
-                class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-semibold">Prendre rendez-vous</a>
-        </div>
-    </section> <!-- À propos -->
-    <section id="apropos" class="py-20 container mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-8">À propos</h2>
-        <div class="grid md:grid-cols-2 gap-10 items-center">
-            <imgsrc="photo" alt="Dentiste" class="rounded-2xl shadow-lg">
-                <p class="text-lg leading-relaxed"> Bienvenue au cabinet dentaire du Dr Dupont. Avec plus de 20 ans
-                    d'expérience,Nous du caractère moderne et personnel. Notre objectif : redonner confiance à votre
-                    sourire
-                    grâce à des traitements de haute qualité. </p>
-        </div>
-    </section>
-    <!-- Services -->
-    <section id="services" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Nos services</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
-                    <img src="photos/p7.jpg" class="phservice">
-                    <h3 class="text-xl font-semibold mb-4">Implants dentaires</h3>
-                    <p>Remplacez vos dents manquantes par des implants durables et esthétiques.</p>
+<body>
+
+    <!-- Navbar   class="service-card fade-up"   -->
+    <header>
+        <div class="parent">
+            <div class="navbar">
+                <div class="logo">
+                    <h1 >FUCHSMILE</h1>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
-                    <img src="photos/p5.jpg" class="phservice">
-                    <h3 class="text-xl font-semibold mb-4">Prothèses dentaires</h3>
-                    <p>Améliorez le confort et la fonction des prothèses avec soin.</p>
-                </div>
-                <div class="bg-white p-6 round-2xl shadow hover:shadow-xl transition">
-                    <img src="photos/p6.jpeg" class="phservice">
-                    <h3 class="text-xl font-semibold mb-4">Soins & Hygiène</h3>
-                    <p>Détartrage, blanchiment et suivi régulier pour garder un sourire éclatant.</p>
-                </div>
+                <ul class="nav_links">
+                    <li><a href="#sec_acc">Accueil</a></li>
+                    <li><a href="#sec_acc">À propos de nous</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
         </div>
+    </header>
+
+
+    <!-- Accueil -->   <!-- a propos -->
+    
+    <section class="sec_acc" id="sec_acc">
+        <div class="Accueil">
+
+            <div class="acc">
+                <h2>Votre sourire, notre priorité</h2>
+
+
+
+                <div id="about" class="about">
+    <div class="about-container">
+        <div class="about-text">
+            <h2>À propos de notre cabinet</h2>
+            <p>
+                Nous sommes un cabinet dentaire moderne, spécialisé dans les soins
+                dentaires, l’esthétique et le suivi personnalisé de chaque patient.
+            </p>
+            <p>
+                Notre objectif est de vous offrir des soins de qualité, dans un
+                environnement confortable et sécurisé.
+            </p>
+        </div>
+    </div>
+</div>
+
+                <a href="#rdv" class="rdv_btn">Prendre rendez-vous</a>
+            </div>
+        </div>
+
     </section>
+
+    <!-- Services -->
+
+<section id="services" class="services">
+    <h2>Nos Services</h2>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <img src="photos/p8.jpg" alt="">
+            <h3>Soins Dentaires</h3>
+            <p>Consultation, détartrage et traitement des caries.</p>
+        </div>
+
+
+        <div class="service-card">
+            <img src="photos/p6.jpeg" alt="">
+            <h3>Blanchiment</h3>
+            <p>Un sourire plus blanc grâce à des techniques modernes.</p>
+        </div>
+
+
+        <div class="service-card">
+            <img src="photos/p10.jfif" alt="">
+            <h3>Orthodontie</h3>
+            <p>Alignement dentaire pour enfants et adultes.</p>
+        </div>
+
+
+        <div class="service-card">
+            <img src="photos/p1.jpg" alt="">
+            <h3>Implants</h3>
+            <p>Solutions durables pour remplacer les dents manquantes.</p>
+        </div>
+
+    </div>
+</section>
+
+
     <!-- Rendez-vous -->
-    <section id="rdv" class="py-20 conteneur mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-8">Prendre Rendez-vous</h2>
+    <section id="rdv" class="rdv">
+    <h2>Prendre Rendez-vous</h2>
 
-       <form class="rndv" action="save_booking.php" method="POST">
-    <input type="text" name="fullname" placeholder="Nom complet" required><br><br>
+    <div class="parent_rdv">
+        <div class="child_rdv">
+            <form id="rdvForm" method="POST">
+                <input type="text" name="fullname" placeholder="Votre nom" required>
+                <input type="email" name="email" placeholder="Votre email" required>
+                <input type="date" name="appointment_date" required>
+                <textarea name="message" rows="4" placeholder="Votre message"></textarea>
+                <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
 
-    <input type="email" name="email" placeholder="email" required><br><br>
+    <p id="confirmation" class="hide">✅ Votre demande envoyée avec succès !</p>
+</section>
 
-    <input type="text" name="phone" placeholder="Phone" required><br><br>
 
-    <input type="date" name="date" required><br><br>
-
-    <textarea name="message" placeholder="Votre message"></textarea><br><br>
-
-    <button type="submit">"Envoyer"</button>
-</form>
-        <p id="confirmation" class="text-center text-green-600 mt-4 hidden">✅ Votre demande envoyée avec succès !</p>
-    </section>
     <!-- Contact -->
-    <section id="contact" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-8">Contact</h2>
-            <p class="mb-4">📍 123 Rue de la Santé, Anvers</p>
+    <section id="contact" class="contact1">
+        <div class="parent_contact">
+            <h2>Contact</h2>
+            <p class="mb-4">📍 KAPELSTRAAT 298, Anvers</p>
             <p class="mb-4">📞 +32 485 63 90 66</p>
-            <p class="mb-4">✉️ contact@dr.fr</p>
+            <p class="mb-4">✉️ contact@smile.fr</p>
         </div>
     </section>
-    <!-- Pied de page -->
-    <footer class="bg-blue-600 text-white py-6 text-center"> © 2026 Sami Smile - Tous droits réservés </footer>
 
-    <script src="script.js"></script>
+
+
+
+    <!-- footer -->
+    <footer> © 2026 FUCHSMILE- Tous droits réservés </footer>
+
+
+
+    <!--<script src="script.js"></script>  -->
+    <script>
+    document.getElementById("rdvForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const msg = document.getElementById("confirmation");
+
+    fetch("save_booking_ajax.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.text())
+    .then(data => {
+        if (data === "success") {
+            msg.style.display = "block";
+
+            setTimeout(() => {
+                msg.style.display = "none";
+            }, 3000);
+
+            this.reset();
+        } else {
+            alert("Erreur");
+        }
+    })
+    .catch(() => {
+        alert(" Probleme de connection");
+    });
+
+}); //  ضروري
+
+    </script>
+
 </body>
 
-
-</html> ```
-
+</html>
